@@ -1,65 +1,332 @@
 <!DOCTYPE html>
 <html>
-
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>My Cats</title>
-    <link rel="stylesheet" href="css/style.css">
-</head>
+    <link rel="stylesheet" href="css/style.css" />
+    <style>
+      .filter-box {
+        display: flex;
+        flex-direction: column;
+        justify-content: start;
+        gap: 1rem;
+        background-color: #a6c3ac66;
+        padding: 0.8rem;
+        margin: 0 0.8rem;
+      }
+      .filter {
+        display: flex;
+        flex-direction: row;
+        gap: 1rem;
+        padding: 0 1rem;
+      }
+      .photo-list {
+        margin-top: 2rem;
+        min-height: 30vh;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+        gap: 0.5rem;
+        padding: 0 1rem;
+      }
+      .photo-list > .photo {
+        width: 200px;
+        aspect-ratio: 1;
+        overflow: hidden;
+        position: relative;
+        cursor: pointer;
+      }
+      .photo-list > .photo > img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 0.2s ease-in-out;
+      }
+      .photo-list > .photo:hover > img {
+        transform: scale(1.1);
+      }
+      .modal {
+        display: none;
+        position: fixed;
+        z-index: 1;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        overflow: auto;
+        background-color: #fffc;
+        justify-content: center;
+        align-items: center;
+      }
+      .modal-content {
+        background-color: #fefefe;
+        width: 60%;
+        max-width: 450px;
+        max-height: 90%;
+        overflow: auto;
+        border-radius: 0.5rem;
+        box-shadow: 0 0 1rem #0006;
+        text-align: center;
+        position: relative;
+      }
+      .modal-content > img {
+        width: 100%;
+        object-fit: contain;
+      }
+      .iine-button {
+        font-size: 2rem;
+        cursor: pointer;
+        position: absolute;
+        top: 0.5rem;
+        right: 0.5rem;
+        color: #ff0000;
+        font-weight: bold;
+        filter: drop-shadow(0 0 0.5rem #ff0000);
+      }
+      /* sp */
+      @media screen and (max-width: 767px) {
+        .photo-list > .photo {
+          width: 45%;
+        }
+      }
+    </style>
+  </head>
 
-<body>
+  <body>
     <div class="wrapper">
-        <!-- ヘッダー情報 -->
-        <header class="header">
-            <h1 class="logo">
-                <a href="index.html"><img src="images/17.png" alt="My Cats"></a>
-            </h1>
-
-        </header>
-        <nav class="menu">
-            <ul>
-                <li>
-                    <a href="index.html">
-                        <div class="neko-button-1">
-                            <div class="button-image"></div>
-                            <div class="button-title">Meow</div>
-                        </div>
-                    </a>
-                </li>
-                <li><a href="new.html">
-                        <div class="neko-button-1">
-                            <div class="button-image"></div>
-                            <div class="button-title">New</div>
-                        </div>
-                    </a>
-                </li>
-                <li><a href="history.html">
-                        <div class="neko-button-1">
-                            <div class="button-image"></div>
-                            <div class="button-title">History</div>
-                        </div>
-                    </a>
-                </li>
-                <li><a href="photo.html">
-                        <div class="neko-button-1">
-                            <div class="button-image"></div>
-                            <div class="button-title">Photo</div>
-                        </div>
-                    </a>
-                </li>
-            </ul>
-        </nav>
-        <!-- メイン情報 -->
-
-
-
-
-        <!-- フッター情報 -->
-        <footer class="footer">
-            <p>&copy;2023 Mame & Chacha.</p>
-        </footer>
+      <!-- ヘッダー情報 -->
+      <header class="header">
+        <h1 class="logo">
+          <a href="index.html"><img src="images/17.png" alt="My Cats" /></a>
+        </h1>
+      </header>
+      <nav class="menu">
+        <ul>
+          <li>
+            <a href="index.html">
+              <div class="neko-button-1">
+                <div class="button-image"></div>
+                <div class="button-title">Meow</div>
+              </div>
+            </a>
+          </li>
+          <li>
+            <a href="new.html">
+              <div class="neko-button-1">
+                <div class="button-image"></div>
+                <div class="button-title">New</div>
+              </div>
+            </a>
+          </li>
+          <li>
+            <a href="history.html">
+              <div class="neko-button-1">
+                <div class="button-image"></div>
+                <div class="button-title">History</div>
+              </div>
+            </a>
+          </li>
+          <li>
+            <a href="photo.html">
+              <div class="neko-button-1">
+                <div class="button-image"></div>
+                <div class="button-title">Photo</div>
+              </div>
+            </a>
+          </li>
+        </ul>
+      </nav>
+      <!-- メイン情報 -->
+      <div class="filter-box">
+        <div class="filter">
+          <h5>並べ替え</h5>
+          <select name="sort" id="sort">
+            <option value="new">新しい順</option>
+            <option value="old">古い順</option>
+            <option value="fav">いいねが多い順</option>
+            <option value="recommend">おすすめ順</option>
+            <option value="random">ランダム順</option>
+          </select>
+        </div>
+        <div class="filter">
+          <h5>絞り込み</h5>
+          <div>
+            <label for="label-mame">まめ</label>
+            <input type="checkbox" name="label-mame" id="label-mame" checked />
+          </div>
+          <div>
+            <label for="label-chacha">茶々</label>
+            <input
+              type="checkbox"
+              name="label-chacha"
+              id="label-chacha"
+              checked
+            />
+          </div>
+        </div>
+      </div>
+      <div id="photo-list" class="photo-list">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 24 24"
+          width="48"
+          height="48"
+          fill="#a6c3ac"
+        >
+          <circle cx="12" cy="2" r="2" opacity=".1">
+            <animate
+              attributeName="opacity"
+              from="1"
+              to=".1"
+              dur="1s"
+              repeatCount="indefinite"
+              begin="0"
+            />
+          </circle>
+          <circle
+            transform="rotate(45 12 12)"
+            cx="12"
+            cy="2"
+            r="2"
+            opacity=".1"
+          >
+            <animate
+              attributeName="opacity"
+              from="1"
+              to=".1"
+              dur="1s"
+              repeatCount="indefinite"
+              begin=".125s"
+            />
+          </circle>
+          <circle
+            transform="rotate(90 12 12)"
+            cx="12"
+            cy="2"
+            r="2"
+            opacity=".1"
+          >
+            <animate
+              attributeName="opacity"
+              from="1"
+              to=".1"
+              dur="1s"
+              repeatCount="indefinite"
+              begin=".25s"
+            />
+          </circle>
+          <circle
+            transform="rotate(135 12 12)"
+            cx="12"
+            cy="2"
+            r="2"
+            opacity=".1"
+          >
+            <animate
+              attributeName="opacity"
+              from="1"
+              to=".1"
+              dur="1s"
+              repeatCount="indefinite"
+              begin=".375s"
+            />
+          </circle>
+          <circle
+            transform="rotate(180 12 12)"
+            cx="12"
+            cy="2"
+            r="2"
+            opacity=".1"
+          >
+            <animate
+              attributeName="opacity"
+              from="1"
+              to=".1"
+              dur="1s"
+              repeatCount="indefinite"
+              begin=".5s"
+            />
+          </circle>
+          <circle
+            transform="rotate(225 12 12)"
+            cx="12"
+            cy="2"
+            r="2"
+            opacity=".1"
+          >
+            <animate
+              attributeName="opacity"
+              from="1"
+              to=".1"
+              dur="1s"
+              repeatCount="indefinite"
+              begin=".625s"
+            />
+          </circle>
+          <circle
+            transform="rotate(270 12 12)"
+            cx="12"
+            cy="2"
+            r="2"
+            opacity=".1"
+          >
+            <animate
+              attributeName="opacity"
+              from="1"
+              to=".1"
+              dur="1s"
+              repeatCount="indefinite"
+              begin=".75s"
+            />
+          </circle>
+          <circle
+            transform="rotate(315 12 12)"
+            cx="12"
+            cy="2"
+            r="2"
+            opacity=".1"
+          >
+            <animate
+              attributeName="opacity"
+              from="1"
+              to=".1"
+              dur="1s"
+              repeatCount="indefinite"
+              begin=".875s"
+            />
+          </circle>
+        </svg>
+      </div>
+      <div class="modal" id="modal">
+        <div class="modal-content">
+          <img src="" alt="" />
+          <div class="photo-info"></div>
+          <div class="iine-button">
+            <svg
+              stroke="currentColor"
+              fill="currentColor"
+              stroke-width="0"
+              viewBox="0 0 24 24"
+              height="60px"
+              width="60px"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path fill="none" d="M0 0h24v24H0z"></path>
+              <path
+                d="M16.5 3c-1.74 0-3.41.81-4.5 2.09C10.91 3.81 9.24 3 7.5 3 4.42 3 2 5.42 2 8.5c0 3.78 3.4 6.86 8.55 11.54L12 21.35l1.45-1.32C18.6 15.36 22 12.28 22 8.5 22 5.42 19.58 3 16.5 3zm-4.4 15.55-.1.1-.1-.1C7.14 14.24 4 11.39 4 8.5 4 6.5 5.5 5 7.5 5c1.54 0 3.04.99 3.57 2.36h1.87C13.46 5.99 14.96 5 16.5 5c2 0 3.5 1.5 3.5 3.5 0 2.89-3.14 5.74-7.9 10.05z"
+              ></path>
+            </svg>
+          </div>
+        </div>
+      </div>
+      <!-- フッター情報 -->
+      <footer class="footer">
+        <p>&copy;2023 Mame & Chacha.</p>
+      </footer>
     </div>
-</body>
-
+    <script src="photo.js"></script>
+  </body>
 </html>
