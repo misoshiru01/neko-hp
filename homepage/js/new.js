@@ -17,7 +17,7 @@ fetch(GAS_URL)
       const photo = photoList[i];
       generateHTML += `
         <div class="child grid-div-${i}">
-          <img src="./https://misoshiru01.github.io/neko-hp/homepage/amazonphots2/${photo.fileName}" />
+          <img src="https://misoshiru01.github.io/neko-hp/homepage/amazonphots2/${photo.fileName}" />
         </div>`;
     }
     console.log(generateHTML);
