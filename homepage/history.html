@@ -2,64 +2,119 @@
 <html>
 
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>My Cats</title>
-    <link rel="stylesheet" href="css/style.css">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>My Cats</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/history.css" />
+  <script src="https://unpkg.com/budoux/bundle/budoux-ja.min.js"></script>
 </head>
 
 <body>
-    <div class="wrapper">
-        <!-- ヘッダー情報 -->
-        <header class="header">
-            <h1 class="logo">
-                <a href="index.html"><img src="images/17.png" alt="My Cats"></a>
-            </h1>
+  <div class="wrapper">
+    <!-- ヘッダー情報 -->
+    <header class="header">
+      <h1 class="logo">
+        <a href="index.html"><img src="images/17.png" alt="My Cats" /></a>
+      </h1>
+    </header>
+    <nav class="menu">
+      <ul>
+        <li>
+          <a href="index.html">
+            <div class="neko-button-1">
+              <div class="button-image"></div>
+              <div class="button-title">Meow</div>
+            </div>
+          </a>
+        </li>
+        <li>
+          <a href="new.html">
+            <div class="neko-button-1">
+              <div class="button-image"></div>
+              <div class="button-title">New</div>
+            </div>
+          </a>
+        </li>
+        <li>
+          <a href="history.html">
+            <div class="neko-button-1">
+              <div class="button-image"></div>
+              <div class="button-title">History</div>
+            </div>
+          </a>
+        </li>
+        <li>
+          <a href="photo.html">
+            <div class="neko-button-1">
+              <div class="button-image"></div>
+              <div class="button-title">Photo</div>
+            </div>
+          </a>
+        </li>
+      </ul>
+    </nav>
+    <!-- メイン情報 -->
 
-        </header>
-        <nav class="menu">
-            <ul>
-                <li>
-                    <a href="index.html">
-                        <div class="neko-button-1">
-                            <div class="button-image"></div>
-                            <div class="button-title">Meow</div>
-                        </div>
-                    </a>
-                </li>
-                <li><a href="new.html">
-                        <div class="neko-button-1">
-                            <div class="button-image"></div>
-                            <div class="button-title">New</div>
-                        </div>
-                    </a>
-                </li>
-                <li><a href="history.html">
-                        <div class="neko-button-1">
-                            <div class="button-image"></div>
-                            <div class="button-title">History</div>
-                        </div>
-                    </a>
-                </li>
-                <li><a href="photo.html">
-                        <div class="neko-button-1">
-                            <div class="button-image"></div>
-                            <div class="button-title">Photo</div>
-                        </div>
-                    </a>
-                </li>
-            </ul>
-        </nav>
-        <!-- メイン情報 -->
+    <main class="main">
+      <!-- timeline -->
+      <div class="timeline">
+        <div class="timeline-item">
+          <div class="icon">
+            <img src="images/17.png" alt="まめ" />
+          </div>
+          <div>
+            <div class="heading">
+              <div class="title">茶々 わが家に来る</div>
+              <div class="date">2018/10/25</div>
+            </div>
+            <div class="content">
+              <p>元々、親戚の家で保護された野良猫でした。新幹線に揺られてわが家にやってきました。</p>
+              <p>茶色だったので「茶々」と命名。小さいですね。</p>
+              <div class="images">
+                <img src="https://misoshiru01.github.io/neko-hp/homepage/amazonphots2/2018-10-25 22.55.06_result.jpg" alt="茶々登場" />
+                <img src="https://misoshiru01.github.io/neko-hp/homepage/amazonphots2/2018-10-26 11.04.01_result.jpg" alt="茶々登場" />
+                <img src="https://misoshiru01.github.io/neko-hp/homepage/amazonphots2/2018-10-26 18.07.17_result.jpg" alt="茶々登場" />
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="icon"></div>
+          <div>
+            <div class="heading">
+              <div class="title">まめ わが家に来る</div>
+              <div class="date">2013/05</div>
+            </div>
+            <div class="content">
+              <p>譲ってもらいました。</p>
+              <p>豆っぽかったので「まめ」と命名。小さいですね。</p>
+              <div class="images">
+                <img src="https://misoshiru01.github.io/neko-hp/homepage/amazonphots2/2017-04-04 22.24.05_result.jpg" alt="まめ登場" />
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="icon"></div>
+          <div>
+            <div class="heading">
+              <div class="title">まめの誕生</div>
+              <div class="date">2013/04</div>
+            </div>
+            <div class="content">
+              <p>友人宅に子猫が生まれました。</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
 
-
-
-
-        <!-- フッター情報 -->
-        <footer class="footer">
-            <p>&copy;2023 Mame & Chacha.</p>
-        </footer>
-    </div>
+    <!-- フッター情報 -->
+    <footer class="footer">
+      <p>&copy;2023 Mame & Chacha.</p>
+    </footer>
+  </div>
 </body>
 
 </html>

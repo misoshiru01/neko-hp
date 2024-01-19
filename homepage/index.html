@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>My Cats</title>
     <link rel="stylesheet" href="css/style.css">
+    <script src="https://unpkg.com/budoux/bundle/budoux-ja.min.js"></script>
 </head>
 
 <body>
@@ -52,28 +53,34 @@
         </nav>
         <!-- メイン情報 -->
         <main>
-            <p>ここはわが家の猫を紹介している個人サイトです。</p>
+            <p class="center">ここはわが家の猫を紹介している個人サイトです。</p>
             <div class="cat_info">
-                <h3>マメ</h3>
-                <p>ツヤツヤの毛並み。ややずっしりしているためダイエット中</p>
-                <p>普段は母または父の部屋で寝ています。</p>
-                <p>余り私に近寄ってこないので写真は少ないです（；ω；`）</p>
+                <div>
+                    <h3>マメ (10才)</h3>
+                    <budoux-ja>
+                        <p>ツヤツヤの毛並み。ややずっしりしているためダイエット中</p>
+                        <p>普段は母または父の部屋で寝ています。</p>
+                        <p>余り私に近寄ってこないので写真は少ないです（；ω；`）</p>
+                    </budoux-ja>
+                </div>
                 <div class="keyvisual">
-                    <img src="" alt="">
-                    <img src="" alt="">
+                    <img src="https://misoshiru01.github.io/neko-hp/homepage/amazonphots2/2022-01-07_10-25-10_445 (2023-02-15T11_21_28.982)_result.jpg" alt="まめ">
                 </div>
             </div>
             <div class="cat_info">
-                <h3>茶々</h3>
-                <p>ふわふわの毛並み。マメに比べると軽いです。</p>
-                <p>普段は私の部屋かリビングで寝ています。</p>
-                <p>かなりの甘えん坊です。</p>
+                <div>
+                    <h3>茶々 (5才)</h3>
+                    <p>ふわふわの毛並み。マメに比べると軽いです。</p>
+                    <p>普段は私の部屋かリビングで寝ています。</p>
+                    <p>かなりの甘えん坊です。</p>
+
+                </div>
                 <div class="keyvisual">
-                    <img src="" alt="">
-                    <img src="" alt="">
+                    <img src="https://misoshiru01.github.io/neko-hp/homepage/amazonphots2/2022-03-14_22-52-12_266_result - コピー.jpg" alt="">
                 </div>
             </div>
-            <p><a href="https://twitter.com/DriedFish_4cat" target="_blank">X(旧Twitter)</a>でも更新をしています。</p>
+            <p class="center"><a href="https://twitter.com/DriedFish_4cat"
+                    target="_blank">X(旧Twitter)</a>でも不定期に更新をしています。</p>
             <!-- <a class="twitter-timeline" href="https://twitter.com/DriedFish_4cat?ref_src=twsrc%5Etfw">Tweets by DriedFish_4cat</a> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>-->
         </main>
         <!-- フッター情報 -->
@@ -82,4 +89,5 @@
         </footer>
     </div>
 </body>
+
 </html>

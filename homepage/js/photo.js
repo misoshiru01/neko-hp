@@ -90,7 +90,7 @@ function displayPhoto() {
   filteredPhoto.forEach((photo) => {
     result += `
       <div class="photo">
-        <img src="amazonphots2/${photo.fileName}">
+        <img src="https://misoshiru01.github.io/neko-hp/homepage/amazonphots2/${photo.fileName}">
         </div>
     `;
   });
@@ -105,7 +105,7 @@ function displayPhoto() {
 function displayModal(photo) {
   document.querySelector(
     ".modal-content img"
-  ).src = `amazonphots2/${photo.fileName}`;
+  ).src = `https://misoshiru01.github.io/neko-hp/homepage/amazonphots2/${photo.fileName}`;
   const date = new Date(photo.date);
   const dateStr = `${date.getFullYear()}年${
     date.getMonth() + 1

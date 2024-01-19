@@ -12,8 +12,9 @@
 html {
     font-family: sans-serif;
     background-color: #eee2d3;
-    
+
 }
+
 /* ヘッダー */
 .wrapper {
     margin: 0 auto 0 auto;
@@ -32,11 +33,12 @@ html {
     width: auto;
 }
 
-.menu{
+.menu {
     position: sticky;
-    top:0;
-    left:0;
+    top: 0;
+    left: 0;
     font-family: 'Gloria Hallelujah', cursive;
+    z-index: 10;
 }
 
 .menu li {
@@ -132,34 +134,351 @@ html {
     cursor: pointer;
 }
 
-.footer{
+.footer {
     text-align: center;
     padding: 30px;
 }
 
+.center {
+    text-align: center;
+}
+
 
 /* index.html */
+main {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
 
+.cat_info {
+    display: flex;
+    gap: 20px;
+    max-width: 1280px;
+    margin: 10px auto;
+    background-color: #8f7e6144;
+    padding: 20px;
+    border-radius: 30px;
+}
 
+.cat_info>div {
+    width: calc(60% - 20px);
+}
+
+.cat_info>.keyvisual {
+    width: 40%;
+}
+
+.cat_info>.keyvisual img {
+    width: 100%;
+    aspect-ratio: 3/2;
+    object-fit: cover;
+    border-radius: 20px;
+}
+
+/* new.html */
+.parent {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-template-rows: repeat(5, 1fr);
+    gap: 4px;
+    margin: 0 auto;
+    width: 100%;
+}
+
+.new_dekigoto {
+    margin: 3cm 0;
+}
+
+.grid-div-1 {
+    grid-area: 1 / 1 / 2 / 2;
+}
+
+.grid-div-2 {
+    grid-area: 2 / 2 / 3 / 3;
+}
+
+.grid-div-3 {
+    grid-area: 2 / 1 / 3 / 2;
+}
+
+.grid-div-4 {
+    grid-area: 1 / 2 / 2 / 4;
+}
+
+.grid-div-5 {
+    grid-area: 2 / 3 / 4 / 5;
+}
+
+.grid-div-6 {
+    grid-area: 1 / 5 / 3 / 6;
+}
+
+.grid-div-7 {
+    grid-area: 1 / 4 / 2 / 5;
+}
+
+.grid-div-8 {
+    grid-area: 3 / 1 / 5 / 3;
+}
+
+.grid-div-9 {
+    grid-area: 4 / 3 / 5 / 4;
+}
+
+.grid-div-10 {
+    grid-area: 3 / 5 / 4 / 6;
+}
+
+.grid-div-11 {
+    grid-area: 5 / 2 / 6 / 4;
+}
+
+.grid-div-12 {
+    grid-area: 5 / 1 / 6 / 2;
+}
+
+.grid-div-13 {
+    grid-area: 4 / 4 / 6 / 6;
+}
+
+.child {
+    padding: 0;
+    min-height: 100px;
+    overflow: hidden;
+    background-color: #ccc;
+}
+
+.child>img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s;
+}
+
+/* history.html */
+.timeline-item {
+    display: flex;
+}
+
+.timeline-item>.icon {
+    width: 20%;
+    max-width: 100px;
+    min-width: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+.timeline-item>.icon::before {
+    content: "";
+    width: 8px;
+    height: 100%;
+    background-color: #a6c3ac;
+}
+
+.timeline-item>.icon::after {
+    content: "";
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background-color: #a6c3ac;
+    box-shadow: 0 0 4px #d3e1d6;
+    position: absolute;
+    top: 10px;
+    z-index: -1;
+}
+
+.timeline-item>.icon img {
+    width: 100%;
+    position: absolute;
+    max-width: 70px;
+    top: -2px;
+    z-index: 10;
+    border-radius: 1000px;
+    aspect-ratio: 1;
+    object-fit: cover;
+    background-color: #fff;
+    box-shadow: 0 0 4px #d3e1d6;
+}
+
+.timeline-item .heading {
+    width: 200px;
+    padding: 0 0.5rem;
+}
+
+.timeline-item .heading>.title {
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+}
+
+.timeline-item .heading>.date {
+    font-size: 0.75rem;
+    font-weight: 400;
+    margin-bottom: 0.5rem;
+}
+
+.timeline-item .content {
+    width: 100%;
+    padding: 0 0.5rem;
+}
+
+.timeline-item .content>.images {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.2rem;
+    padding-bottom: 2rem;
+}
+
+.timeline-item .content>.images>img {
+    aspect-ratio: 1;
+    object-fit: cover;
+}
+
+@media (min-width: 768px) {
+    .timeline-item .content>.images>img {
+        height: 180px;
+    }
+}
+
+@media (max-width: 768px) {
+    .timeline-item .content>.images>img {
+        width: calc(50% - 0.4rem);
+    }
+}
+
+/* photo.html */
+
+.filter-box {
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    gap: 1rem;
+    background-color: #a6c3ac66;
+    padding: 0.8rem;
+    margin: 0 0.8rem;
+}
+
+.filter {
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+    padding: 0 1rem;
+}
+
+.photo-list {
+    margin-top: 2rem;
+    min-height: 30vh;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0 1rem;
+}
+
+.photo-list>.photo {
+    width: 200px;
+    aspect-ratio: 1;
+    overflow: hidden;
+    position: relative;
+    cursor: pointer;
+}
+
+.photo-list>.photo>img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.2s ease-in-out;
+}
+
+.photo-list>.photo:hover>img {
+    transform: scale(1.1);
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: #fffc;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content {
+    background-color: #fefefe;
+    width: 60%;
+    max-width: 450px;
+    max-height: 90%;
+    overflow: auto;
+    border-radius: 0.5rem;
+    box-shadow: 0 0 1rem #0006;
+    text-align: center;
+    position: relative;
+}
+
+.modal-content>img {
+    width: 100%;
+    object-fit: contain;
+}
+
+.iine-button {
+    font-size: 2rem;
+    cursor: pointer;
+    position: absolute;
+    top: 0.5rem;
+    right: 0.5rem;
+    color: #ff0000;
+    font-weight: bold;
+    filter: drop-shadow(0 0 0.5rem #ff0000);
+}
+
+.photo-info {
+    padding: 20px;
+}
+
+/* sp */
+@media screen and (max-width: 767px) {
+    .photo-list>.photo {
+        width: 45%;
+    }
+
+    .modal-content {
+        width: 90%;
+    }
+}
 
 
 /* スマートフォン向けCSS */
-@media (max-width: 767px){
-    .logo{
+@media (max-width: 767px) {
+    .logo {
         margin: 5px 0 0 0;
     }
-    .logo img{
+
+    .logo img {
         height: 50px;
         width: auto;
     }
+
     .menu ul {
         padding: 10px 0 0 0;
         line-height: 30px;
     }
-    .neko-button-1{
+
+    .neko-button-1 {
         padding: 4px 8px;
         width: 22vw;
     }
+
     .neko-button-1 .button-title {
         font-size: min(4vw, 20px);
     }
